@@ -64,14 +64,11 @@ const cardAppender = (selector) => {
   const topicsArr = ['bootstrap', 'javascript', 'jquery', 'node', 'technology'];
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
     .then((res) => {
-      console.log(res);
       topicsArr.forEach(topic => {
         res.data.articles[topic].forEach(object => {
           const newCard = Card(object);
           const implementCard = document.querySelector(selector);
           implementCard.appendChild(newCard)
-          console.log(Card(object))
-
         })
       })
     })
